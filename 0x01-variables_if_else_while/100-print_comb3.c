@@ -16,18 +16,16 @@ int main(void)
 
 	while (first <= 8)
 	{
-		putchar(first + '0');
 		second = first + 1;
 		while (second <= 9)
 		{
+			putchar(first + '0');
 			putchar(second + '0');
 			if (first != 8)
 			{
 				putchar(',');
 				putchar(' ');
 			}
-			if (second != 9)
-				putchar(first + '0');
 			second++;
 		}
 		first++;
