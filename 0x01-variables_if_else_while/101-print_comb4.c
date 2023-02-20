@@ -14,11 +14,11 @@ int main(void)
 	int j;
 	int k;
 
-	for (i = '0'; i <= '9'; i++) /*hundreds place*/
+	for (i = '0'; i <= '7'; i++)
 	{
-		for (j = (i + 1); j <= '9'; j++) /*tens=100s+1*/
+		for (j = (i + 1); j <= '8'; j++)
 		{
-			for (k = (j + 1); k <= '9'; k++) /*ones*/
+			for (k = (j + 1); k <= '9'; k++)
 			{
 				putchar(i);
 				putchar(j);
@@ -35,3 +35,39 @@ int main(void)
 
 	return (0);
 }
+
+/* Alternative code */
+
+/*
+int main(void)
+{
+	int i;
+	int j;
+	int k;
+	while (i <= 7)
+	{
+		j = i + 1;
+		while (j <= 8)
+		{
+			k = j + 1;
+			while (k <= 9)
+			{
+				putchar(i + '0'); // converts to char //
+				putchar(j + '0');
+				putchar(k + '0');
+				if (i != 7 || j != 8 || k != 9)
+				{
+					putchar(',');
+					putcar(' ');
+				}
+				k++;
+			}
+			j++;
+		}
+		i++;
+	}
+	putchar('\n');
+
+	return (0);
+}
+*/
