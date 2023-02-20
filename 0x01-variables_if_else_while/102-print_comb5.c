@@ -1,46 +1,43 @@
 #include <stdio.h>
 
 /**
- * main - A program that print pairs of combination
+ * main - A program that prints all possible combinations of
+ * two two-digit numbers.
+ * Description: number is i j,
  *
  * Return: returns 0
  */
 
 int main(void)
 {
-	int i, j, k, m;
+	int i;
+	int j;
 
-	i = 48;
-	while (i < 58)
+	i = 0;
+	while (i <= 98)
 	{
-		j = 48;
-		while (j < 58)
+		j = i + 1;
+		while (j <= 99)
 		{
-			m = j + 1;
-			k = i;
-			while (k < 58)
+			/* print tens part of digit i */
+			putchar(i / 10 + '0');
+			/* print unit part of digit i */
+			putchar(i % 10 + '0');
+			putchar(' ');
+			/* print tens part of digit j */
+			putchar(j / 10 + '0');
+			/* print unit part of digit j */
+			putchar(j % 10 + '0');
+			if (i != 98)
 			{
-				while (m < 58)
-				{
-					putchar(i);
-					putchar(j);
-					putchar(32);
-					putchar(k);
-					putchar(m);
-					if (i < 57 || j < 56 || k < 57 || m < 57)
-					{
-						putchar(44);
-						putchar(32);
-					}
-					m++;
-				}
-				m = 48;
-				k++;
+				putchar(',');
+				putchar(' ');
 			}
 			j++;
 		}
 		i++;
 	}
-	putchar(10);
+	putchar('\n');
+
 	return (0);
 }
