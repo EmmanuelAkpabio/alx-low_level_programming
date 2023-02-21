@@ -9,7 +9,7 @@
 int main(void)
 {
 	char word[] = "_putchar";
-	long unsigned int i;
+	unsigned long int i;
 
 	i = 0;
 
