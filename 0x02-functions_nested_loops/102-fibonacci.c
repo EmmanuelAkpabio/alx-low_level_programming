@@ -1,49 +1,35 @@
 #include <stdio.h>
 
 /**
- * getFibonacci - generates the nth fibonacci number
- * @n: the nth fibonacci number
+ * getFibonacci - generates fibonacci numbers up to n
+ * @n: total count of numbers
  *
- * Return: the nth fibonacci number
+ * Return: nothing
  */
-int getFibonacci(int n)
+void getFibonacci(int n)
 {
 	int num1;
 	int num2;
 	int sum;
 	int i;
-	int ret;
 
 	num1 = 1;
-	num2 = 1;
+	num2 = 2;
 
 	for (i = 1; i <= n; i++)
 	{
-		if (i != n)
+		if (i == n)
 		{
+			printf("%d\n", num1);
+		}
+		else
+		{
+			printf("%d, ", num1);
 			sum = num1 + num2;
 			num1 = num2;
 			num2 = sum;
 		}
-		else
-			ret = num2;
 	}
-	return (ret);
-}
-
-/**
- * firstDigit - returns the first digit of a positive integer
- * @n: The positive integer
- *
- * Return: first digit
- */
-int firstDigit(int n)
-{
-	while (n >= 10)
-	{
-		n /= 10;
-	}
-	return (n);
 }
 
 /**
@@ -54,32 +40,10 @@ int firstDigit(int n)
 
 int main(void)
 {
-	int loop;
-	int fib;
-	int count;
-	int endCount;
+	int n;
 
-	loop = 1;
-	count = 1;
-	endCount = 50;
-	while (loop)
-	{
-		fib = getFibonacci(loop);
-		if (firstDigit(fib) == 1 || firstDigit(fib) == 2)
-		{
-			if (count < endCount)
-			{
-				printf("%d, ", fib);
-				count++;
-			}
-			else
-			{
-				printf("%d\n", fib);
-				loop = 0;
-			}
-		}
-		if (loop != 0)
-			loop ++;
-	}
+	n = 50;
+	getFibonacci(n);
+
 	return (0);
 }
