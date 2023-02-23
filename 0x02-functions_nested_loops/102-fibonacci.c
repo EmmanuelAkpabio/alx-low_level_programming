@@ -8,9 +8,9 @@
  */
 void getFibonacci(int n)
 {
-	int num1;
-	int num2;
-	int sum;
+	long int num1;
+	long int num2;
+	long int sum;
 	int i;
 
 	num1 = 1;
@@ -20,11 +20,11 @@ void getFibonacci(int n)
 	{
 		if (i == n)
 		{
-			printf("%d\n", num1);
+			printf("%ld\n", num1);
 		}
 		else
 		{
-			printf("%d, ", num1);
+			printf("%ld, ", num1);
 			sum = num1 + num2;
 			num1 = num2;
 			num2 = sum;
