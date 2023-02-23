@@ -14,6 +14,9 @@ int getFibonacci(int n)
 	int i;
 	int ret;
 
+	num1 = 1;
+	num2 = 1;
+
 	for (i = 1; i <= n; i++)
 	{
 		if (i != n)
@@ -36,14 +39,11 @@ int getFibonacci(int n)
  */
 int firstDigit(int n)
 {
-	int first = 0;
-
-	while (n != 0)
+	while (n >= 10)
 	{
-		first = n % 10;
 		n /= 10;
 	}
-	return (first);
+	return (n);
 }
 
 /**
@@ -60,8 +60,8 @@ int main(void)
 	int endCount;
 
 	loop = 1;
-	count = 0;
-	endCount = 4;
+	count = 1;
+	endCount = 50;
 	while (loop)
 	{
 		fib = getFibonacci(loop);
@@ -78,7 +78,8 @@ int main(void)
 				loop = 0;
 			}
 		}
+		if (loop != 0)
+			loop ++;
 	}
 	return (0);
 }
-
