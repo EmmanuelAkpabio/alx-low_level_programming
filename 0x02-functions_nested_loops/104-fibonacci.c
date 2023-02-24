@@ -6,10 +6,10 @@
  *
  * Return: nothing
  */
-void printBig(long int n)
+void printBig(unsigned long int n)
 {
-	printf("%ld", n / 10000000000);
-	printf("%ld", n % 10000000000);
+	printf("%lu", n / 10000000000);
+	printf("%lu", n % 10000000000);
 }
 
 /**
@@ -20,9 +20,9 @@ void printBig(long int n)
  */
 void getFibonacci(int n)
 {
-	long int num1;
-	long int num2;
-	long int sum;
+	unsigned long int num1;
+	unsigned long int num2;
+	unsigned long int sum;
 	int i;
 
 	num1 = 1;
@@ -32,13 +32,12 @@ void getFibonacci(int n)
 	{
 		if (i == n)
 		{
-			if (num1 > 10000000000)
+			if (n > 92)
 				printBig(num1);
-			printf("%ld\n", num1);
 		}
 		else
 		{
-			if (num1 > 10000000000)
+			if (n > 92)
 			{
 				printBig(num1);
 				printf(", ");
@@ -48,7 +47,7 @@ void getFibonacci(int n)
 			}
 			else
 			{
-				printf("%ld, ", num1);
+				printf("%lu, ", num1);
 				sum = num1 + num2;
 				num1 = num2;
 				num2 = sum;
