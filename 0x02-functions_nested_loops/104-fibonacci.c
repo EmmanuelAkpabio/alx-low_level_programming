@@ -14,8 +14,9 @@ void getFibonacci(int n)
 
 	num1 = 1;
 	num2 = 2;
+	i = 0;
 	value = 10000000000;
-	for (i = 0; i <= n; i++)
+	while (i <= n)
 	{
 		if (i == 90)
 		{
@@ -24,7 +25,7 @@ void getFibonacci(int n)
 			m_head = num2 / value;
 			m_tail = num2 % value;
 		}
-		if (i > 90)
+		else if (i > 90)
 		{
 			over_flow = (n_tail + m_tail) / value;
 			if (i == 98)
@@ -45,6 +46,7 @@ void getFibonacci(int n)
 			num1 = num2;
 			num2 = sum;
 		}
+		i++;
 	}
 }
 
