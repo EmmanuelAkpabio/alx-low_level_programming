@@ -15,17 +15,17 @@ void getFibonacci(int n)
 	num1 = 1;
 	num2 = 2;
 	i = 0;
-	value = 10000000000;
+	value = 10000000000; /* split long long int into head and tail */
 	while (i <= n)
 	{
-		if (i == 90)
+		if (i == 90) /* starting from the 90th number, split */
 		{
 			n_head = num1 / value;
 			n_tail = num1 % value;
 			m_head = num2 / value;
 			m_tail = num2 % value;
 		}
-		else if (i > 90)
+		else if (i > 90) /* splitting logic */
 		{
 			over_flow = (n_tail + m_tail) / value;
 			if (i == 98)
