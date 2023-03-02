@@ -9,26 +9,17 @@
 
 char *leet(char *str)
 {
-	int i;
-	char *copy;
-
-	copy = str;
+	char arr[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	char replace[] = {'4', '3', '0', '7', '1'};
+	int i, j;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		else if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		else if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		else if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		else if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
-		else
-			str[i] = str[i];
+		for (j = 0; arr[j] != '\0'; j++)
+		{
+			if (str[i] == arr[j])
+				str[i] = replace[j / 2];
+		}
 	}
-
-	return (copy);
+	return (str);
 }
