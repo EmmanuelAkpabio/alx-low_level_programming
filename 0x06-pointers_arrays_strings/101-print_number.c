@@ -9,11 +9,12 @@
 
 void print_number(int n)
 {
-	int place_value, digit, num, multiple;
+	unsigned int place_value, digit, num;
+	double multiple;
 
 	num = n;
 	multiple = 1;
-	
+
 	/* deal with simple case: 0 */
 	if (n == 0)
 		_putchar('0');
