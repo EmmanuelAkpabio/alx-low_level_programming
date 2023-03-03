@@ -9,41 +9,38 @@
 
 void print_number(int n)
 {
-	int count;
-	int num;
-	int zero;
-
-	count = 1;
-
-	if (n < 0)
-	{
-		n = -n;
-		_putchar('-');
-	}
+	int place_value, digit, num, multiple;
 
 	num = n;
-
-	while (num >= 10)
+	multiple = 1;
+	
+	/* deal with simple case: 0 */
+	if (n == 0)
+		_putchar('0');
+	else
 	{
-		while (n >= 10)
-		{
-			n = n / 10;
-			count = count * 10;
-		}
-		_putchar(n + '0');
+		/* make num positive, if negative */
 
-		num = num % count;
-		if (num < (count / 10))
+		if (n < 0)
 		{
-			zero = count / 10;
-			while(zero > 1)
-			{
-				_putchar((num / zero) + '0');
-				zero = zero / 10;
-			}
-			num = num % 10;
+			num = -n;
+			_putchar('-');
 		}
-		count = 1;
+
+		/* get the place value of num */
+
+		while (multiple <= num)
+			multiple = multiple * 10;
+		place_value = multiple / 10;
+
+		/* print each digit of num */
+
+		while (place_value >= 1)
+		{
+			digit = num / place_value;
+			_putchar(digit + '0');
+			num = num - (place_value * digit);
+			place_value = place_value / 10;
+		}
 	}
-	_putchar(num + '0');
 }
