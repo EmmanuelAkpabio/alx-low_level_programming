@@ -11,37 +11,32 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i;
-	int j;
-	char *copy;
+	int i, j, k;
 
-	copy = needle;
 	i = 0;
 
 	if (needle[0] == '\0')
-		return ('\0');
+		return (haystack);
 
-	while (*haystack != '\0')
+	while (haystack[i] != '\0')
 	{
+		/* if a byte matches firt char of needle */
+		/* iterate through needle until mismatch */
 		if (haystack[i] == needle[0])
 		{
-			j = i;
-			while (*needle != '\0')
+			j = 0, k = i;
+			while (needle[j] != '\0')
 			{
-				if (haystack[j] == *needle)
-				{
-					j++;
-					needle++;
-				}
+				if (haystack[k] == needle[j])
+					j++, k++;
 				else
 					break;
 			}
-			if (*needle == '\0')
+			if (needle[j] == '\0')
 			{
 				return (haystack + i);
 			}
 		}
-		needle = copy;
 		i++;
 	}
 
