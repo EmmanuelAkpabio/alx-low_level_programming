@@ -18,6 +18,9 @@ char *_strstr(char *haystack, char *needle)
 	copy = needle;
 	i = 0;
 
+	if (needle[0] == '\0')
+		return (haystack);
+
 	while (*haystack != '\0')
 	{
 		if (haystack[i] == needle[0])
@@ -42,5 +45,5 @@ char *_strstr(char *haystack, char *needle)
 		i++;
 	}
 
-	return (NULL);
+	return ('\0');
 }
