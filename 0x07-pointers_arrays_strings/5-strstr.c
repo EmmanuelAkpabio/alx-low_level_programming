@@ -12,7 +12,6 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i;
-	int cmp;
 	int j;
 	char *copy;
 
@@ -28,17 +27,13 @@ char *_strstr(char *haystack, char *needle)
 			{
 				if (haystack[j] == *needle)
 				{
-					cmp = 1;
+					j++;
+					needle++;
 				}
 				else
-				{
-					cmp = 0;
 					break;
-				}
-				needle++;
-				j++;
 			}
-			if (*needle == '\0' && cmp == 1)
+			if (*needle == '\0')
 			{
 				return (haystack + i);
 			}
