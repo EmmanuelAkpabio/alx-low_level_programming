@@ -55,7 +55,7 @@ int compare(char *left, char *right)
 			return (1);
 
 		/* move pointers towards each other and recompare */
-		return compare(left + 1, right - 1);
+		return (compare(left + 1, right - 1));
 	}
 
 	return (0);
