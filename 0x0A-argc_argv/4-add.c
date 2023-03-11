@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+bool is_num(char *arg);
 
 /**
  * main - adds positive numbers.
@@ -25,7 +28,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (atoi(argv[i])) /* atoi returns 0 if not integer */
+			if (is_num(argv[i])) /* check if string is number */
 				sum += atoi(argv[i]);
 			else
 			{
@@ -37,4 +40,23 @@ int main(int argc, char *argv[])
 	}
 
 	return (0);
+}
+
+/**
+ * is_num - iterate through each argv to check if every character is a number
+ * @arg: a argv
+ * Return: true if entire argv is number, otherwise, false
+ */
+
+bool is_num(char *arg)
+{
+	int i;
+
+	for (i = 0; arg[i]; i++)
+	{
+		if (!(arg[i] >= '0' && arg[i] <= '9'))
+			return (false);
+	}
+
+	return (true);
 }
