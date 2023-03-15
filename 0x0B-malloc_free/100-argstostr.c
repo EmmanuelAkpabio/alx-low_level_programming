@@ -47,7 +47,7 @@ char *argstostr(int ac, char **av)
 	}
 
 	/* allocate memory for concatenated string, +ac for '\n', +1 for \0 */
-	concat_str = malloc(sizeof(char) * (total_len + ac + 1));
+	concat_str = malloc(sizeof(char) * (total_len) + ac + 1);
 	if (concat_str == NULL) /* on allocation failure */
 		free(concat_str);
 
