@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+
 int count_words(char *str);
 char *_strncpy(char *dest, char *src, int n);
 
@@ -36,9 +37,6 @@ char **strtow(char *str)
 		while (str[k] != ' ' && str[k] != '\0') /* count word length */
 			k++;
 
-		if (k == 0)
-			continue;
-
 		words[i] = malloc(sizeof(char) * (k + 1));
 
 		if (words[i] == NULL)
@@ -60,7 +58,6 @@ char **strtow(char *str)
 	words[i] = NULL; /* add NULL terminator at the end of the array */
 
 	return (words);
-
 }
 
 /**
