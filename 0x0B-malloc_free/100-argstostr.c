@@ -31,7 +31,7 @@ char *argstostr(int ac, char **av)
 	{
 		size = _strlen(av[i]); /* get size of argument[i] */
 
-		arr[i] = malloc(sizeof(char) * (size + 1)); /* allow for \0 */
+		arr[i] = malloc(sizeof(char) * size);
 		if (arr[i] == NULL)
 		{
 			for (j = 0; j < i; j++) /* free previous memory */
