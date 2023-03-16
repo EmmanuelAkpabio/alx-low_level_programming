@@ -33,18 +33,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n1 >= len_s2)
 		n1 = len_s2;
 
-	size = len_s1 + n1;
-	concat = malloc(sizeof(char) * (size + 1)); /* +1 for \0 */
+	size = len_s1 + n1 + 1; /* +1 for null character */
+	concat = malloc(sizeof(char) * size);
 
 	/* check for memory allocation error */
 	if (concat == NULL)
 		return (NULL);
 
 	/* On success */
-	for (i = 0; i < len_s1; i++) /* copy s1 into concat */
+	for (i = 0; s1[i] != '\0'; i++) /* copy s1 into concat */
 		concat[i] = s1[i];
-	for (j = 0; i < size; i++, j++)
-		concat[i] = s2[j];
+	for (j = 0; j < size; j++)
+		concat[i + j] = s2[j];
+
+	/* include the null character to concat */
+	concat[i + j] = '\0';
 
 	return (concat);
 }
