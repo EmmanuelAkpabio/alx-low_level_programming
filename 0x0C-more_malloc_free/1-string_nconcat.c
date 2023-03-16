@@ -13,8 +13,10 @@ int _strlen(char *s);
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, len_s1, len_s2, size;
+	int i, j, len_s1, len_s2, size, n1;
 	char *concat;
+
+	n1 = n;
 
 	/* treat NULL as an empty string */
 	if (s1 == NULL)
@@ -22,13 +24,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
+	if (n1 < 0) /* negative bytes is an errot */
+		return (NULL);
+
 	len_s1 = _strlen(s1);
 	len_s2 = _strlen(s2);
 
-	if (n >= len_s2)
-		n = len_s2;
+	if (n1 >= len_s2)
+		n1 = len_s2;
 
-	size = len_s1 + n;
+	size = len_s1 + n1;
 	concat = malloc(sizeof(char) * (size + 1)); /* +1 for \0 */
 
 	/* check for memory allocation error */
