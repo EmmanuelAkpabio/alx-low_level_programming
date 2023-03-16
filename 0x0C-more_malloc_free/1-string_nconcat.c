@@ -43,7 +43,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	/* On success */
 	for (i = 0; s1[i] != '\0'; i++) /* copy s1 into concat */
 		concat[i] = s1[i];
-	for (j = 0; j < size; j++)
+	for (j = 0; j < n1; j++)
 		concat[i + j] = s2[j];
 
 	/* include the null character to concat */
