@@ -18,6 +18,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *name_copy, *owner_copy;
 
 	new = malloc(sizeof(dog_t));
+	if (new == NULL) /* validate new */
+		return (NULL);
 
 	new->age = age; /* age is not copied */
 
