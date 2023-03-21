@@ -73,7 +73,7 @@ char *_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
-
+	dest[i] = '\0'; /* append null byte */
 	return (dest);
 }
 
