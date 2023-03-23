@@ -21,14 +21,15 @@ int main(int argc, char *argv[])
 
 	/* check if the third argument is a valid operator */
 	if (argv[2][0] != '+' && argv[2][0] != '-' && argv[2][0] != '*' &&
-			argv[2][0] != '/' && argv[2][0] != '%')
+			argv[2][0] != '/' && argv[2][0] != '%'
+			 && argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
 	/* division or modulo by 0 is not allowed */
-	if (atoi(argv[3]) == 0 && argv[2][0] == '/' && argv[2][0] == '%')
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && argv[3][0] == '0')
 	{
 		printf("Error\n");
 		exit(100);
@@ -40,6 +41,12 @@ int main(int argc, char *argv[])
 
 	/* point function pointer to address of f(a, b) */
 	op_func = get_op_func(argv[2]);
+
+	if (op_func == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
 	result = op_func(num1, num2);
 
