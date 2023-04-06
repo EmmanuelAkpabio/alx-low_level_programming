@@ -12,24 +12,38 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *temp = *head, *new;
 	unsigned int i = 0;
-	int data = n;
 
-	new = malloc(sizeof(listint_t)); /* create new node */
+	/* allocate memory for new node */
+	new = malloc(sizeof(listint_t));
 	if (new == NULL) /* validate memory */
 		return (NULL);
 
-	new->n = data;
-	new->next = NULL;
+	/* fill new node with data */
+	new->n = n;
 
-	/* loop until idx is at the correct position or exceeds the postion */
+	if (idx == 0) /* handle case where new node is at beginning*/
+	{
+		new->next = *head;
+		*head = new;
+		return (new);
+	}
+
+
+	/* find the node before the insertion point */
 	while (temp != NULL && i < (idx - 1))
 	{
 		temp = temp->next;
 		i++;
 	}
-	if (temp == NULL) /* the position does not exist */
-		return (NULL);
 
+	/* check if the index is out or range */
+	if (temp == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+
+	/* insert the new node */
 	new->next = temp->next;
 	temp->next = new;
 
