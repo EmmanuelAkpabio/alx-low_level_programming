@@ -11,7 +11,8 @@ int _strlen(const char *s);
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int idx, pow, dec; 
+	unsigned int idx, pow, dec;
+
 	if (b == NULL)
 		return (0);
 
