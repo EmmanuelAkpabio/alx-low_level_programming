@@ -1,6 +1,5 @@
 #include "main.h"
 int _strlen(const char *s);
-unsigned int to_num(char s);
 
 /**
  * binary_to_uint - converts a binary number to an unsigned int
@@ -12,12 +11,11 @@ unsigned int to_num(char s);
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int idx, pow, sum;
-
+	unsigned int idx, pow, dec; 
 	if (b == NULL)
 		return (0);
 
-	pow = 0, sum = 0;
+	pow = 0, dec = 0;
 
 	idx = _strlen(b) - 1; /* get the last index of the string */
 
@@ -29,24 +27,11 @@ unsigned int binary_to_uint(const char *b)
 		/* get the powers of 2 which are 1, 2, 4, 8, 16, ... */
 		pow = (pow == 0) ? 1 : pow * 2;
 
-		sum += (to_num(b[idx]) * pow);
+		dec += ((b[idx] - '0') * pow);
 		idx--;
 	}
 
-	return (sum);
-}
-
-/**
- * to_num - convert '0' and '1' to their numbers
- * @s: either '0' or '1'
- *
- * Return: unsigned int 0 or 1
- */
-unsigned int to_num(char s)
-{
-	if (s == '0')
-		return (0);
-	return (1);
+	return (dec);
 }
 
 /**
