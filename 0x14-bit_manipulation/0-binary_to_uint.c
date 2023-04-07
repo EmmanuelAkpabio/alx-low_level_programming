@@ -51,3 +51,25 @@ int _strlen(const char *s)
 
 	return (i);
 }
+
+/* Alternative code */
+
+/*
+ *	unsigned int binary_to_uint(const char *b)
+ *	{
+ *		unsigned int idx, dec = 0;
+ *
+ *		if (!b)
+ *			return (0);
+ *
+ *		for (idx = 0; b[idx]; idx++)
+ *		{
+ *			if (b[idx] < '0' || b[idx] > '1')
+ *				return (0);
+ *			dec = 2 * dec + (b[idx] - '0');
+ *		}
+ *
+ *		return (dec);
+ *	}
+ */
+
