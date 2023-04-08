@@ -40,6 +40,11 @@ int get_bit(unsigned long int n, unsigned int index)
 		/* get the value at index */
 		value = (n & mask) ? 1 : 0;
 	}
+	else
+	{
+		/* index is out of range */
+		value = -1;
+	}
 
 	return (value);
 }
