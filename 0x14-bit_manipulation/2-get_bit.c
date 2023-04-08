@@ -15,7 +15,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	/* check if index is valid */
 	len = sizeof(unsigned long int) * 8;
 	if (index > len)
-		return (-1)
+		return (-1);
 
 	/* update mask based on index */
 	mask <<= index;
