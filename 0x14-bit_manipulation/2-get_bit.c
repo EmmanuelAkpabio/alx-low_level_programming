@@ -9,7 +9,7 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int mask = 1, len = 0, num = 0;
+	unsigned int mask = 1, len = 0, num = n;
 	int value = -1, num1 = n, idx = index;
 
 	/* handle negative num */
