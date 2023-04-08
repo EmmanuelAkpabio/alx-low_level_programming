@@ -9,12 +9,16 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int mask = 1, len = 0;
-	int value = -1, num = n;
-	
+	unsigned int mask = 1, len = 0, num = 0;
+	int value = -1, num1 = n, idx = index;
+
 	/* handle negative num */
-	if (num < 0)
-		return (-1);
+	if (num1 < 0)
+		return (value);
+
+	/* handle negative index */
+	if (idx < 0)
+		return (value);
 
 	/* handle when num is 0 */
 	if (num == 0 && index == 0)
