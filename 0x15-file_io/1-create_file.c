@@ -1,5 +1,5 @@
 #include "main.h"
-int _strlen(char *s);
+size_t _strlen(const char *s);
 
 /**
  * create_file - a function that creates a file
@@ -41,11 +41,11 @@ int create_file(const char *filename, char *text_content)
  *
  * Return: the length
  */
-int _strlen(char *s)
+size_t _strlen(const char *s)
 {
-	int i = 0;
+	size_t len = 0;
 
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
